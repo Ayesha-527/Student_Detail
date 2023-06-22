@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonStudentEntry;
+    private Button buttonStudentList; // Add a reference to the Student List button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +22,24 @@ public class MainActivity extends AppCompatActivity {
                 openStudentEntryActivity();
             }
         });
+
+        buttonStudentList = findViewById(R.id.buttonStudentList); // Initialize the Student List button
+        buttonStudentList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openStudentListActivity(); // Call the method to open the Student List activity
+            }
+        });
     }
 
     private void openStudentEntryActivity() {
         Intent intent = new Intent(this, StudentEntryActivity.class);
         startActivity(intent);
     }
+
+    private void openStudentListActivity() {
+        Intent intent = new Intent(this, StudentListActivity.class);
+        startActivity(intent);
+    }
 }
+
